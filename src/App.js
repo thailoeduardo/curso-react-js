@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
+import Home from './pages/Home';
+import Empresa from './pages/Empresa';
+import Contato from './pages/Contato';
+import Navbar from './layout/Navbar';
+import Footer from './layout/Footer';
 function App() {
+
+  // const nome = "Thailo";
+  // const nomeUpperCase = nome.toUpperCase;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar />
+
+        <Routes>
+          <Route exact path="/" element={<Home />}/>
+          <Route path="/empresa" element={<Empresa />}/>
+          <Route path="/contato" element={<Contato />}/>
+        </Routes>
+
+        <Footer />
+      </Router>
     </div>
   );
 }
